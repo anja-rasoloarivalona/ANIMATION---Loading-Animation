@@ -23,4 +23,112 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000; }
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.preloader:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #000;
+  transition: 3s;
+  transition-delay: 2s;
+  z-index: 5; }
+
+.preloader.complete:before {
+  left: -50%; }
+
+.preloader:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: #000;
+  transition: 3s;
+  transition-delay: 2s;
+  z-index: 5; }
+
+.preloader.complete:after {
+  right: -50%; }
+
+.loader {
+  border: 16px solid white;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  width: 12rem;
+  height: 12rem;
+  animation: spin 2s linear infinite;
+  z-index: 6; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.home {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  opacity: 0; }
+  .home__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; }
+  .home__text {
+    font-size: 40rem;
+    font-weight: 600;
+    position: absolute;
+    color: rgba(218, 218, 218, 0.178); }
+  .home__details {
+    position: absolute;
+    left: 20rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    justify-content: space-around; }
+    .home__details__brand {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 8px; }
+    .home__details__model {
+      font-size: 11rem;
+      font-weight: 600;
+      transform: translateX(10%);
+      opacity: 0; }
+      .home__details__model__inner {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        width: 1rem;
+        background: #3e3eb9;
+        height: 40%;
+        clip-path: polygon(0 0, 76% 0, 100% 100%, 0 100%);
+        z-index: 3; }
+    .home__details__submodel {
+      font-size: 13rem;
+      font-weight: 600;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateX(-100%); }
+      .home__details__submodel__inner {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 1rem;
+        background: #5e5e6b;
+        height: 50%;
+        clip-path: polygon(0 0, 76% 0, 100% 100%, 0 100%);
+        z-index: 3; }
